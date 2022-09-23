@@ -11,6 +11,9 @@
   p {
     @apply text-slate-800 dark:text-slate-100 !m-0 nun;
   }
+  .page-container {
+    @apply h-full w-full flex flex-col items-center p-5 mb-[20em] fade-effect-quick;
+  }
 }
 
 @font-face {
