@@ -1,7 +1,5 @@
 // A simple React accordion component example
 // https://justacoding.blog/react-accordion-component-example/
-
-// const { useState } = React
 import { useState } from "react";
 
 import { FaChevronUp, FaChevronDown } from "react-icons/fa";
@@ -42,26 +40,11 @@ const AccordionItem = ({
       </div>
 
       <div className=" accordionContent">
-        <p className="p-1">{children}</p>
+        <div className="p-1">{children}</div>
       </div>
     </div>
   );
 };
-
-// const CustomHeader = () => {
-// 	return <h1 className="customHeader">Types of plant</h1>
-// }
-
-// const CustomFooter = () => {
-// 	return <div className="customFooter">For more info, visit our main website</div>
-// }
-
-//   const AccordionFull = () => {
-
-//     return (
-
-//     );
-//   };
 
 const HelpAccordion = ({
   items,
