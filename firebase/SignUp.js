@@ -1,11 +1,8 @@
 import Link from "next/link";
 import React, { useRef, useState } from "react";
-// import { Form, Button, Card, Alert } from "react-bootstrap"
-// import { useAuth } from "../contexts/AuthContext";
 import { useAuth } from "./AuthContext";
-// import { Link, useHistory } from "react-router-dom";
 import { db } from "./firebase";
-import { serverTimestamp, doc, getFirestore, setDoc } from "firebase/firestore";
+import { serverTimestamp, doc, setDoc } from "firebase/firestore";
 import toast from "react-hot-toast";
 
 export default function Signup({ setMode }) {
@@ -13,10 +10,7 @@ export default function Signup({ setMode }) {
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const { signup } = useAuth();
-
-  // const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  // const history = useHistory();
   const { currentUser } = useAuth();
 
   async function handleSubmit(e) {
@@ -27,25 +21,18 @@ export default function Signup({ setMode }) {
     }
 
     try {
-      // setError("");
-      // console.log(currentUser);
-
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value)
         .then((user) => {
           // console.log(user.user.uid);
-
-          // console.log(currentUser.uid);
-
           // Create a new post in firestore
           const createUser = async (user) => {
             console.log(user.user.uid);
             const ref = doc(db, "users", user.user.uid);
-            // Tip: give all fields a default value here
 
             let dataForCreation = {
               uid: user.user.uid,
-              credits: 10,
+              credits: 50,
               createdAt: serverTimestamp(),
             };
 
@@ -58,18 +45,15 @@ export default function Signup({ setMode }) {
                 console.log("It failed!" + error);
               });
           };
-
           createUser(user);
         })
         .catch((error) => {
           console.log(error);
         });
 
-      //   history.push("/");
       setMode("approved");
       console.log("success!");
     } catch (error) {
-      // setError("Failed to create an account");
       console.log("FAIL");
       console.log(error);
     }
@@ -82,7 +66,6 @@ export default function Signup({ setMode }) {
       <div className="fade-effect-quick">
         <div>
           <h2 className="mb-4 text-center">Sign Up</h2>
-          {/* {error && <Alert variant="danger">{error}</Alert>} */}
           <form onSubmit={handleSubmit}>
             <div id="email">
               <p>Email</p>

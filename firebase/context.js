@@ -1,3 +1,3 @@
-import { createContext, useEffect } from "react";
+import { createContext } from "react";
 
 export const UserContext = createContext({ user: null, credits: null });
