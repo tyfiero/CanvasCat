@@ -2,20 +2,9 @@ import React from "react";
 import { Squash as Hamburger } from "hamburger-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { BsSun, BsMoon, BsChatLeftText } from "react-icons/bs";
+import { BsSun, BsMoon,  } from "react-icons/bs";
 import { useTheme } from "next-themes";
-import { FaHome, FaRegUser } from "react-icons/fa";
-import {
-  TbCamera,
-  TbCode,
-  TbFileText,
-  TbFolders,
-  TbHome2,
-  TbMail,
-  TbMusic,
-} from "react-icons/tb";
 import Image from "next/image";
-import { AiOutlineRobot } from "react-icons/ai";
 import { motion, useReducedMotion } from "framer-motion";
 
 function Navbar() {
@@ -104,7 +93,6 @@ function Navbar() {
       setIsToggled(true);
     }
   };
-  let postSlice = router.asPath.slice(0, 6);
 
   React.useEffect(() => {
     if (router.asPath === "/home" || router.asPath === "/") {
