@@ -13,12 +13,5 @@ const sendAllTypeState = atom({
   key: "sendAllType",
   default: "canvas",
 });
-const charState = selector({
-  key: "charState",
-  get: ({ get }) => {
-    const name = get(nameState);
-    return name.length;
-  },
-});
 
-export { responsesState, charState, sendAllState, sendAllTypeState };
+export { responsesState, sendAllState, sendAllTypeState };

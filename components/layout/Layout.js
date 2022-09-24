@@ -1,18 +1,11 @@
-import React, { useState, useContext } from "react";
-import { Squash as Hamburger } from "hamburger-react";
-import Link from "next/link";
-import { FaChartLine, FaRandom, FaRegUser, FaRobot } from "react-icons/fa";
-import { useAuth } from "../../firebase/AuthContext";
-import { UserContext } from "../../firebase/context";
-import toast from "react-hot-toast";
-import { BiLayout } from "react-icons/bi";
+import React from "react";
+
 import Navbar from "./navbar";
+import Footer from "./footer";
 function Layout({ children }) {
-  const { currentUser, logout } = useAuth();
-  const { aiCredits } = useContext(UserContext);
 
   return (
-    <div className="relative wrapped-iframe">
+    <div className="relative flex flex-col justify-between h-[100vh]">
       <div className="fixed top-0 left-0 overflow-hidden scale-75 opacity-75 blobs">
         <div className="svg-blob1 "></div>
         <div className="svg-blob2 "></div>
@@ -20,8 +13,11 @@ function Layout({ children }) {
         <div className="svg-blob4 "></div>
         <div className="svg-blob5 "></div>
       </div>
-      <Navbar />
-      <div>{children}</div>
+      <div>
+        <Navbar />
+        <div>{children}</div>
+      </div>
+      <Footer />
     </div>
   );
 }
