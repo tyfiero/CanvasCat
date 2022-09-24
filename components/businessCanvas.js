@@ -2,17 +2,30 @@ import React from "react";
 import CanvasUnit from "./canvasUnit";
 import TextareaAutosize from "react-textarea-autosize";
 import HelpAccordion from "./Accordion";
-import { FaCheck, FaCoins, FaEdit } from "react-icons/fa";
+import {
+  FaChartPie,
+  FaCoins,
+  FaEdit,
+  FaFunnelDollar,
+  FaPeopleArrows,
+} from "react-icons/fa";
 import Link from "next/link";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import { useRecoilState } from "recoil";
 import { sendAllState, sendAllTypeState } from "./states";
+import { BiLayout } from "react-icons/bi";
+import EditUnit from "./editUnit";
+import { UserContext } from "../firebase/context";
+import { BsBoxSeam, BsBuilding, BsCash, BsPeopleFill } from "react-icons/bs";
+import { TbActivity, TbDiamond } from "react-icons/tb";
 
 function BusinessCanvas(props) {
   //   const [credits, setCredits] = React.useState(0);
   const [sendAll, setSendAll] = useRecoilState(sendAllState);
   const [sendAllType, setSendAllType] = useRecoilState(sendAllTypeState);
+  const { aiCredits } = React.useContext(UserContext);
 
+  const [layout, setLayout] = React.useState("Edit");
   const [context1, setContext1] = React.useState("");
   const [context2, setContext2] = React.useState("");
   const [context3, setContext3] = React.useState("");
@@ -37,7 +50,7 @@ function BusinessCanvas(props) {
       title: "Name",
       content: (
         <>
-          <CanvasUnit
+          <EditUnit
             kind="Names"
             type="identity"
             description={
@@ -52,7 +65,7 @@ function BusinessCanvas(props) {
       title: "Slogan",
       content: (
         <>
-          <CanvasUnit
+          <EditUnit
             kind="Slogan"
             type="identity"
             description={"What catchy, memorable slogan will my business have?"}
@@ -65,7 +78,7 @@ function BusinessCanvas(props) {
       title: "Vision",
       content: (
         <>
-          <CanvasUnit
+          <EditUnit
             kind="Vision"
             type="identity"
             description={"What is the vision for the future of my business?"}
@@ -78,7 +91,7 @@ function BusinessCanvas(props) {
       title: "Elevator Pitch",
       content: (
         <>
-          <CanvasUnit
+          <EditUnit
             kind="Elevator"
             type="identity"
             description={"How do I succinctly describe my business to others?"}
@@ -93,7 +106,7 @@ function BusinessCanvas(props) {
     {
       title: "Key Partners",
       content: (
-        <CanvasUnit
+        <EditUnit
           kind="Key Partners"
           type="canvas"
           description={"Who are the people or businesses that will help you?"}
@@ -104,7 +117,7 @@ function BusinessCanvas(props) {
     {
       title: "Key Activities",
       content: (
-        <CanvasUnit
+        <EditUnit
           kind="Key Activities"
           type="canvas"
           description={
@@ -117,7 +130,7 @@ function BusinessCanvas(props) {
     {
       title: "Key Resources",
       content: (
-        <CanvasUnit
+        <EditUnit
           kind="Key Resources"
           type="canvas"
           description={"What will you need to accomplish your goals?"}
@@ -128,7 +141,7 @@ function BusinessCanvas(props) {
     {
       title: "Value Propositions",
       content: (
-        <CanvasUnit
+        <EditUnit
           kind="Value Propositions"
           type="canvas"
           description={
@@ -142,7 +155,7 @@ function BusinessCanvas(props) {
       title: "Customer Relationships",
       content: (
         <>
-          <CanvasUnit
+          <EditUnit
             kind="Customer Relationships"
             type="canvas"
             description={
@@ -157,7 +170,7 @@ function BusinessCanvas(props) {
       title: "Customer Segments",
       content: (
         <>
-          <CanvasUnit
+          <EditUnit
             kind="Customer Segments"
             type="canvas"
             description={"What is your niche? Who are your customers?"}
@@ -170,7 +183,7 @@ function BusinessCanvas(props) {
       title: "Channels",
       content: (
         <>
-          <CanvasUnit
+          <EditUnit
             kind="Channels"
             type="canvas"
             description={
@@ -185,7 +198,7 @@ function BusinessCanvas(props) {
       title: "Cost Structure",
       content: (
         <>
-          <CanvasUnit
+          <EditUnit
             kind="Cost Structure"
             type="canvas"
             description={
@@ -200,7 +213,7 @@ function BusinessCanvas(props) {
       title: "Revenue Streams",
       content: (
         <>
-          <CanvasUnit
+          <EditUnit
             kind="Revenue Streams"
             type="canvas"
             description={
@@ -217,7 +230,7 @@ function BusinessCanvas(props) {
     {
       title: "Strengths",
       content: (
-        <CanvasUnit
+        <EditUnit
           kind="Strengths"
           type="swot"
           description={"What are the strengths of my business?"}
@@ -228,7 +241,7 @@ function BusinessCanvas(props) {
     {
       title: "Weaknesses",
       content: (
-        <CanvasUnit
+        <EditUnit
           kind="Weaknesses"
           type="swot"
           description={"What are the weaknesses of my business?"}
@@ -239,7 +252,7 @@ function BusinessCanvas(props) {
     {
       title: "Opportunities",
       content: (
-        <CanvasUnit
+        <EditUnit
           kind="Opportunities"
           type="swot"
           description={"What are the opportunities for my business?"}
@@ -250,7 +263,7 @@ function BusinessCanvas(props) {
     {
       title: "Threats",
       content: (
-        <CanvasUnit
+        <EditUnit
           kind="Threats"
           type="swot"
           description={"What are the macro threats to my business?"}
@@ -261,7 +274,7 @@ function BusinessCanvas(props) {
   ];
   return (
     <>
-      <div className="normal-box-soft w-[100%] min-w-[25em] flex flex-col items-center p-5 overflow-y-auto">
+      <div className=" w-full min-w-[25em] flex flex-col items-center  ">
         <h4 className="text-xl text-t-bd dark:text-blues-100 fre">
           Canvas Builder
         </h4>
@@ -374,7 +387,22 @@ function BusinessCanvas(props) {
           </TabList>
 
           <TabPanel selectedClassName=" !block" className="hidden ">
-            <div className="flex flex-col items-center w-full h-full gap-0 rounded-tl-none glass-box fade-effect-quick min-h-[10em]">
+            <div className="flex flex-col items-center w-full h-full gap-0 rounded-tl-none glass-box relative fade-effect-quick min-h-[10em]">
+              <button
+                className={
+                  "absolute top-1 right-1  " +
+                  (layout === "canvas" ? "button2" : "button")
+                }
+                onClick={() => {
+                  if (layout !== "Canvas") {
+                    setLayout("Canvas");
+                  } else {
+                    setLayout("Edit");
+                  }
+                }}
+              >
+                {layout === "Canvas" ? <BiLayout /> : <FaEdit />} {layout} View
+              </button>
               <button
                 className=" px-2 nun text-base py-0 card__btn_next  flex items-center justify-center md:hover:scale-105  md:active:scale-95 fade-effect cursor-pointer !shadow-clear-pd3 md:hover:shadow-xl m-1 drop-shadow-xl !bg-gradient-to-br from-white via-t-pl  to-t-pm !shadow-2xl  transition duration-500"
                 onClick={() => {
@@ -394,11 +422,149 @@ function BusinessCanvas(props) {
                   </div>
                 </div>
               </button>
-              <HelpAccordion
-                items={items}
-                initialActiveItemIndex={0}
-                closeOtherItemsOnClick
-              />
+              <div className="flex flex-col justify-start gap-0">
+                <div className="flex items-center gap-2">
+                  <p className="pt-1 text-lg font-bold text-left text-t-pd">
+                    {aiCredits}
+                  </p>
+                  <FaCoins className="scale-125 text-t-pd" />
+                </div>
+
+                <Link href={"/buy-credits"}>
+                  <button className="flex transition cursor-pointer md:active:scale-95 fade-effect w-fit">
+                    <p className=" text-t-pd md:hover:text-t-bd dark:text-t-pd !mb-0 underline text-xs">
+                      Get More Credits
+                    </p>
+                  </button>
+                </Link>
+              </div>
+              {layout === "Canvas" ? (
+                <section className="flex flex-col w-full border-2 rounded-lg border-slate-700 dark:border-white bg-white/80">
+                  <div className="flex min-h-[40em] md:flex-row sm:flex-col">
+                    <div className="border-2 border-slate-700 dark:border-white lg:w-1/5 sm:w-full min-h-[20em]">
+                      <CanvasUnit
+                        icon={<BsBuilding />}
+                        title="Key Partners"
+                        kind="Key Partners"
+                        type="canvas"
+                        description={
+                          "Who are the people or businesses that will help you?"
+                        }
+                        qContext={contextSentence}
+                      />
+                    </div>
+                    <div className="border-2 border-slate-700 dark:border-white lg:w-1/5 sm:w-full min-h-[20em]">
+                      <div className="border-2 border-slate-700 dark:border-white lg:h-1/2 sm:h-full min-h-[20em]">
+                        <CanvasUnit
+                          icon={<TbActivity />}
+                          title="Key Activities"
+                          kind="Key Activities"
+                          type="canvas"
+                          description={
+                            "What are the essential activities of your business? What does your business do for people?"
+                          }
+                          qContext={contextSentence}
+                        />
+                      </div>
+                      <div className="border-2 border-slate-700 dark:border-white lg:h-1/2 sm:h-full min-h-[20em]">
+                        <CanvasUnit
+                          icon={<BsBoxSeam />}
+                          title="Key Resources"
+                          kind="Key Resources"
+                          type="canvas"
+                          description={
+                            "What will you need to accomplish your goals?"
+                          }
+                          qContext={contextSentence}
+                        />
+                      </div>
+                    </div>
+                    <div className="border-2 border-slate-700 dark:border-white lg:w-1/5 sm:w-full min-h-[20em]">
+                      <CanvasUnit
+                        icon={<TbDiamond />}
+                        title="Value Propositions"
+                        kind="Value Propositions"
+                        type="canvas"
+                        description={
+                          "What makes you different? Why should someone buy your product or service?"
+                        }
+                        qContext={contextSentence}
+                      />
+                    </div>
+                    <div className="border-2 border-slate-700 dark:border-white lg:w-1/5 sm:w-full min-h-[20em]">
+                      <div className="border-2 border-slate-700 dark:border-white lg:h-1/2 sm:h-full min-h-[20em]">
+                        <CanvasUnit
+                          icon={<BsPeopleFill />}
+                          title="Customer Relationships"
+                          kind="Customer Relationships"
+                          type="canvas"
+                          description={
+                            "What relationships do you have with your customers? How will your customers interact with you?"
+                          }
+                          qContext={contextSentence}
+                        />
+                      </div>
+                      <div className="border-2 border-slate-700 dark:border-white lg:h-1/2 sm:h-full min-h-[20em]">
+                        <CanvasUnit
+                          title="Customer Channels"
+                          icon={<FaPeopleArrows />}
+                          kind="Channels"
+                          type="canvas"
+                          description={
+                            "Where will you find your customers? What channels will you use to reach them?"
+                          }
+                          qContext={contextSentence}
+                        />
+                      </div>
+                    </div>
+                    <div className="border-2 border-slate-700 dark:border-white lg:w-1/5 sm:w-full min-h-[20em]">
+                      <CanvasUnit
+                        icon={<FaChartPie />}
+                        title="Customer Segments"
+                        kind="Customer Segments"
+                        type="canvas"
+                        description={
+                          "What is your niche? Who are your customers?"
+                        }
+                        qContext={contextSentence}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex min-h-[20em] md:flex-row sm:flex-col">
+                    <div className="border-2 border-slate-700 dark:border-white lg:w-1/2 sm:w-full min-h-[20em]">
+                      <CanvasUnit
+                        icon={<BsCash />}
+                        title="Cost Structure"
+                        kind="Cost Structure"
+                        type="canvas"
+                        description={
+                          "How much will it cost to run your business? What unexpected expenses can you forsee? What are your top costs?"
+                        }
+                        qContext={contextSentence}
+                      />
+                    </div>
+                    <div className="border-2 border-slate-700 dark:border-white lg:w-1/2 sm:w-full min-h-[20em]">
+                      <CanvasUnit
+                        icon={<FaFunnelDollar />}
+                        title="Revenue Streams"
+                        kind="Revenue Streams"
+                        type="canvas"
+                        description={
+                          "How will you generate revenue? What will you charge? Will you have a free tier?"
+                        }
+                        qContext={contextSentence}
+                      />
+                    </div>
+                  </div>
+                </section>
+              ) : (
+                <HelpAccordion
+                  items={items}
+                  initialActiveItemIndex={0}
+                  closeOtherItemsOnClick
+                />
+              )}
             </div>
           </TabPanel>
           <TabPanel selectedClassName=" !block" className="hidden ">
