@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
-import { FaLongArrowAltLeft } from "react-icons/fa";
 import MRRChart from "./MRRChart";
 
 function MrrCalculator() {
-  const router = useRouter();
   const [productCost, setProductCost] = React.useState(10);
   const [churnRate, setChurnRate] = React.useState(1);
   const [totalUsers, setTotalUsers] = React.useState(100);
@@ -30,83 +28,84 @@ function MrrCalculator() {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
-  useEffect(() => {
-    let usersLost = 1 - churnRate / 100;
-    let endOfMonthUsers = totalUsers * usersLost + newUsersPerMonth;
-    let calcGrowth = ((endOfMonthUsers - totalUsers) / totalUsers) * 100;
-    setGrowthRate(calcGrowth);
+  useEffect(
+    () => {
+      let usersLost = 1 - churnRate / 100;
+      let endOfMonthUsers = totalUsers * usersLost + newUsersPerMonth;
+      let calcGrowth = ((endOfMonthUsers - totalUsers) / totalUsers) * 100;
+      setGrowthRate(calcGrowth);
 
-    let calcMrr = productCost * endOfMonthUsers;
-    let formatted = calcMrr.toFixed(2);
-    // let commaFormatted = formatted.toLocaleString("en-US")
-    setMrr(formatted);
+      let calcMrr = productCost * endOfMonthUsers;
+      let formatted = calcMrr.toFixed(2);
+      setMrr(formatted);
 
-    let calcArr = (calcMrr * 12).toFixed(2);
-    setArr(calcArr);
+      let calcArr = (calcMrr * 12).toFixed(2);
+      setArr(calcArr);
 
-    let calcTotalCost = (
-      infrastructureCost +
-      laborCost +
-      marketingCost +
-      otherCosts
-    ).toFixed(2);
-    setTotalCost(calcTotalCost);
+      let calcTotalCost = (
+        infrastructureCost +
+        laborCost +
+        marketingCost +
+        otherCosts
+      ).toFixed(2);
+      setTotalCost(calcTotalCost);
 
-    let calcMProfit = (calcMrr - totalCost).toFixed(2);
+      let calcMProfit = (calcMrr - totalCost).toFixed(2);
 
-    setMProfit(calcMProfit);
+      setMProfit(calcMProfit);
 
-    let calcYProfit = (calcMProfit * 12).toFixed(2);
-    setYProfit(calcYProfit);
+      let calcYProfit = (calcMProfit * 12).toFixed(2);
+      setYProfit(calcYProfit);
 
-    let calcMargin = ((calcMProfit / calcMrr) * 100).toFixed(2);
-    setMargin(calcMargin);
+      let calcMargin = ((calcMProfit / calcMrr) * 100).toFixed(2);
+      setMargin(calcMargin);
 
-    //NEXT UP calculate chart data points and send to chart
 
-    let calcChartDataPoints = [];
-    let calcProfitChartDataPoints = [];
+      let calcChartDataPoints = [];
+      let calcProfitChartDataPoints = [];
 
-    let amount;
-    let profitAmount;
-    for (let i = 0; i < 12; i++) {
-      if (i === 0) {
-        amount = calcMrr;
-        profitAmount = calcMrr - calcTotalCost;
-        let format = Number(amount).toFixed(2);
-        let formatP = Number(profitAmount).toFixed(2);
+      let amount;
+      let profitAmount;
+      for (let i = 0; i < 12; i++) {
+        if (i === 0) {
+          amount = calcMrr;
+          profitAmount = calcMrr - calcTotalCost;
+          let format = Number(amount).toFixed(2);
+          let formatP = Number(profitAmount).toFixed(2);
 
-        calcChartDataPoints.push(format);
+          calcChartDataPoints.push(format);
 
-        calcProfitChartDataPoints.push(formatP);
-      } else {
-        amount = amount * (1 + growthRate / 100);
-        profitAmount = amount - calcTotalCost;
+          calcProfitChartDataPoints.push(formatP);
+        } else {
+          amount = amount * (1 + growthRate / 100);
+          profitAmount = amount - calcTotalCost;
 
-        let format2 = Number(amount).toFixed(2);
-        let formatP2 = Number(profitAmount).toFixed(2);
+          let format2 = Number(amount).toFixed(2);
+          let formatP2 = Number(profitAmount).toFixed(2);
 
-        calcChartDataPoints.push(format2);
-        calcProfitChartDataPoints.push(formatP2);
+          calcChartDataPoints.push(format2);
+          calcProfitChartDataPoints.push(formatP2);
+        }
       }
-    }
 
-    setChartDataPoints([calcChartDataPoints, calcProfitChartDataPoints]);
-  }, [
+      setChartDataPoints([calcChartDataPoints, calcProfitChartDataPoints]);
+    },
     // eslint-disable-line react-hooks/exhaustive-deps
-    productCost,
-    churnRate,
-    totalUsers,
-    usersLostPerMonth,
-    payingUsers,
-    newUsersPerMonth,
-    growthRate,
-    mrr,
-    otherCosts,
-    marketingCost,
-    laborCost,
-    infrastructureCost,
-  ]);
+    [
+      productCost,
+      churnRate,
+      totalUsers,
+      usersLostPerMonth,
+      payingUsers,
+      newUsersPerMonth,
+      growthRate,
+      mrr,
+      otherCosts,
+      marketingCost,
+      laborCost,
+      infrastructureCost,
+    ]
+  );
 
   return (
     <div className="flex flex-col items-center w-full h-full fade-effect">

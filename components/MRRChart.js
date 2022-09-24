@@ -15,21 +15,11 @@ import {
   Animations,
 } from "chart.js";
 
-// import faker from 'faker';
-// const { faker } = require("@faker-js/faker");
-
 const MRRChart = (props) => {
-  const [color, setColor] = useState("hsla(206,91%,64%,1)");
-  const [color2, setColor2] = useState("hsla(178,100%,50%,1)");
+  const [color, setColor] = useState("hsla(40, 93%, 62%, 1)");
+  const [color2, setColor2] = useState("hsla(169, 59%, 45%, 1)");
 
-  useEffect(() => {
-    let blobc1 = localStorage.getItem("blob1") || "hsla(206,91%,64%,1)";
-    let blobc5 = localStorage.getItem("blob5") || "hsla(178,100%,50%,1)";
-    setColor(blobc1);
-    setColor2(blobc5);
-  }, []);
   let passedData = props.chartDataPoints;
-
   ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -59,13 +49,11 @@ const MRRChart = (props) => {
     datasets: [
       {
         label: "MRR Growth",
-        // data: labels.map(() => faker.datatype.number({ min: 0, max: 20 })),
         data: passedData[0],
         borderColor: color,
         backgroundColor: color,
         borderWidth: 6,
         hoverBorderWidth: 15,
-        // pointStyle: "circle",
         hitRadius: 9,
         tension: 0.3,
         borderJoinStyle: "round",
@@ -73,13 +61,11 @@ const MRRChart = (props) => {
       },
       {
         label: "Profit Growth",
-        // data: labels.map(() => faker.datatype.number({ min: 0, max: 20 })),
         data: passedData[1],
         borderColor: color2,
         backgroundColor: color2,
         borderWidth: 6,
         hoverBorderWidth: 15,
-        // pointStyle: "circle",
         hitRadius: 9,
         tension: 0.3,
         borderJoinStyle: "round",
@@ -105,7 +91,7 @@ const MRRChart = (props) => {
                 font: {
                   size: 24,
                   family: "Freude",
-                  color: "#2549A8",
+                  color: "#2FB69E",
                 },
               },
               legend: {
