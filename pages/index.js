@@ -64,13 +64,13 @@ export default function Home() {
             <p className="font-bold">
               Just input what your business does or will do, add some
               stakeholders and key features, and GPT-3 will spit out a full BMC
-              ready for your next pitch.
+              ready for your next pitch!
               <br />
               <br />
               First five generations are free!
               <br />
               <br />
-              Tryna have some fun with an AI today?
+              Tryna have some fun with an AI today??
             </p>
           </motion.div>
 
