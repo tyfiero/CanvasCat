@@ -7,7 +7,6 @@ import { useAuth } from "../firebase/AuthContext";
 
 function LogIn({ children }) {
   const [mode, setMode] = useState("default");
-  const [randomizeAll, setRandomizeAll] = useState(false);
   const { currentUser, logout } = useAuth();
   useEffect(() => {
     if (currentUser) {
@@ -47,8 +46,6 @@ function LogIn({ children }) {
           </button>
         </div>
       )}
-
-      {/* <Loader show className="" /> */}
     </div>
   );
 }

@@ -1,22 +1,21 @@
 import React from "react";
-import Loader from "./Loader";
-import TextareaAutosize from "react-textarea-autosize";
+import Loader from "../Loader";
 import axios from "axios";
-import { UserContext } from "../firebase/context";
-import { useAuth } from "../firebase/AuthContext";
+import { useAuth } from "../../firebase/AuthContext";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
-import Link from "next/link";
-import { FaCoins } from "react-icons/fa";
+import { FaQuestionCircle } from "react-icons/fa";
 import { BsCoin } from "react-icons/bs";
-import { sendAllState, sendAllTypeState } from "./states";
+import { sendAllState, sendAllTypeState } from "../states";
 import { useRecoilState } from "recoil";
-function EditUnit({ title, kind, description, qContext, type }) {
+import { UserContext } from "../../firebase/context";
+
+function CanvasUnit({ title, kind, description, qContext, type, icon }) {
   const [text, setText] = React.useState("");
   const [aiLoading, setAiLoading] = React.useState(false);
   const [credits, setCredits] = React.useState(0);
-  const { aiCredits } = React.useContext(UserContext);
   const { currentUser } = useAuth();
+  const { aiCredits } = React.useContext(UserContext);
   const [sendAll, setSendAll] = useRecoilState(sendAllState);
   const [sendAllType, setSendAllType] = useRecoilState(sendAllTypeState);
 
@@ -58,8 +57,10 @@ function EditUnit({ title, kind, description, qContext, type }) {
 
   const getTokenAmount = async (values) => {
     let uid = currentUser.uid;
+
     const ref = doc(getFirestore(), "users", uid);
     const docSnap = await getDoc(ref);
+    // console.log(docSnap)
     if (docSnap.exists()) {
       setCredits(docSnap.data().credits);
     } else {
@@ -69,6 +70,7 @@ function EditUnit({ title, kind, description, qContext, type }) {
   };
 
   const sendToAI = async (data) => {
+    setResponseRecieved(false);
     let uid = currentUser.uid;
     await axios({
       method: "POST",
@@ -96,7 +98,6 @@ function EditUnit({ title, kind, description, qContext, type }) {
           deduct(1);
         }
         setAiLoading(false);
-
         return response;
       })
       .catch((error) => {
@@ -111,63 +112,62 @@ function EditUnit({ title, kind, description, qContext, type }) {
   };
 
   return (
-    <div>
-      <div className="relative flex flex-col p-5 rounded-xl group fade-effect-quick">
-        <p className="text-sm">{description}</p>
-        <button
-          className="absolute top-0 right-0 px-2 nun text-base py-0 card__btn_next  flex items-center justify-center md:hover:scale-105  md:active:scale-95 fade-effect cursor-pointer !shadow-clear-pd3 md:hover:shadow-xl m-1 drop-shadow-xl !bg-gradient-to-br from-white via-t-pl  to-t-pm !shadow-2xl  transition duration-500"
-          onClick={() => {
-            if (aiLoading) {
-              console.log("Please wait for the first request to load");
-            } else {
-              if (credits >= 1) {
-                setAiLoading(true);
-                sendToAI({ input: qContext, type: "new", kind: kind });
-              } else {
-                setText(
-                  "No credits remaining, you can purchase more or upgrade your plan in the billing menu."
-                );
-              }
-            }
-          }}
-        >
-          <div className="flex items-center gap-3 ">
-            <p className=" text-t-pd dark:text-t-pd">Ask AI</p>
-            <div className="flex items-center gap-0 ">
-              <p className="text-lg text-slate-500 dark:text-slate-500">1</p>
-              <BsCoin className="scale-90" />
+    <div className="h-full">
+      <div className="relative flex flex-col h-full fade-effect-quick">
+        <div className="flex flex-wrap items-center justify-between px-1 mt-1">
+          <div className="flex items-center gap-2 ">
+            <div className="flex items-center gap-1">
+              {icon} <h3 className="p-0 m-0 text-base fre ">{title}</h3>
+            </div>
+
+            <div className="relative group">
+              <FaQuestionCircle className="text-teal-400 transition hover:scale-110" />
+              <div className="absolute z-50 hidden p-2 bg-white rounded-md w-72 fade-effect-quick group-hover:block -left-32 top-5 ring-2 ring-slate-500 ">
+                {" "}
+                <p className="text-sm ">{description}</p>
+              </div>
             </div>
           </div>
-        </button>
+          <button
+            className=" px-2 nun text-base py-0 card__btn_next  flex items-center justify-center md:hover:scale-105  md:active:scale-95 fade-effect cursor-pointer !shadow-clear-pd3 md:hover:shadow-xl m-1 drop-shadow-xl !bg-gradient-to-br from-white via-t-pl  to-t-pm !shadow-2xl  transition duration-500"
+            onClick={() => {
+              if (aiLoading) {
+                console.log("Please wait for the first request to load");
+              } else {
+                if (credits >= 1) {
+                  setAiLoading(true);
+                  sendToAI({ input: qContext, type: "new", kind: kind });
+                } else {
+                  setText(
+                    "No credits remaining, you can purchase more or upgrade your plan in the billing menu."
+                  );
+                  setResponseRecieved(true);
+                }
+              }
+            }}
+          >
+            <div className="flex items-center gap-2 ">
+              <p className="text-sm text-t-pd dark:text-t-pd">Fill</p>
+              <div className="flex items-center gap-0 ">
+                <p className="text-sm text-slate-500 dark:text-slate-500">1</p>
+                <BsCoin className="scale-75" />
+              </div>
+            </div>
+          </button>
+        </div>
         <div className="absolute left-[50%] top-[50%]">
           {" "}
           <Loader show={aiLoading} />
         </div>
-        <TextareaAutosize
-          className="w-full h-auto textarea-tw min-h-[5em]"
+        <textarea
+          className="w-full h-full textarea-tw !rounded-sm min-h-[20em] !placeholder-slate-500/50"
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="..."
-        ></TextareaAutosize>
-        <div className="flex flex-col justify-start gap-0">
-          <div className="flex items-center gap-2">
-            <p className="pt-1 text-lg font-bold text-left text-t-pd">
-              {aiCredits}
-            </p>
-            <FaCoins className="scale-125 text-t-pd" />
-          </div>
-
-          <Link href={"/buy-credits"}>
-            <button className="flex transition cursor-pointer md:active:scale-95 fade-effect w-fit">
-              <p className=" text-t-pd md:hover:text-t-bd dark:text-t-pd !mb-0 underline text-xs">
-                Get More Credits
-              </p>
-            </button>
-          </Link>
-        </div>
+          placeholder={description}
+        />
       </div>
     </div>
   );
 }
 
-export default EditUnit;
+export default CanvasUnit;

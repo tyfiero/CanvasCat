@@ -1,4 +1,4 @@
-import BusinessCanvas from "../components/businessCanvas";
+import BusinessCanvas from "../components/canvas/businessCanvas";
 import LogIn from "../components/LogIn";
 import { UserContext } from "../firebase/context";
 import { React, useContext } from "react";
