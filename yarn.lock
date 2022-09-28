@@ -724,22 +724,6 @@
     "parse-svg-path" "^0.1.2"
     "svg-arc-to-cubic-bezier" "^3.2.0"
 
-"@react-pdf/renderer@^3.0.0":
-  "integrity" "sha512-1eTqNdl2+ZIC85L7NmPkUmyurZDLK1nernqvRlHVMMauB4rA3UkB0Y2Z8bHMUvB+t2s4rNlMJ+RZdrR5H/JGpw=="
-  "resolved" "https://registry.npmjs.org/@react-pdf/renderer/-/renderer-3.0.0.tgz"
-  "version" "3.0.0"
-  dependencies:
-    "@babel/runtime" "^7.16.4"
-    "@react-pdf/font" "^2.3.0"
-    "@react-pdf/layout" "^3.2.0"
-    "@react-pdf/pdfkit" "^3.0.0"
-    "@react-pdf/primitives" "^3.0.0"
-    "@react-pdf/render" "^3.2.1"
-    "@react-pdf/types" "^2.1.0"
-    "queue" "^6.0.1"
-    "react-reconciler" "^0.23.0"
-    "scheduler" "^0.17.0"
-
 "@react-pdf/stylesheet@^4.0.0":
   "integrity" "sha512-R+17y/HpSmOBeFPaqH7P8R0Y7AbjM3izVZWYgM5BhQ52PdyTroIkVRMPEPTDSGXPGmsCS3lvyXFnjKOi+LdSgw=="
   "resolved" "https://registry.npmjs.org/@react-pdf/stylesheet/-/stylesheet-4.0.0.tgz"
@@ -989,56 +973,6 @@
   "version" "4.3.0"
   dependencies:
     "color-convert" "^2.0.1"
-
-"antd@^4.21.0":
-  "integrity" "sha512-p8R5scejlWjAIF/NoJ5JF5OMjLbAlCA7u85cNwbtRQOP+14KQDXZyHMT4C5oc9nhz7xxD/Bry6HhPkUmsRuP7Q=="
-  "resolved" "https://registry.npmjs.org/antd/-/antd-4.21.0.tgz"
-  "version" "4.21.0"
-  dependencies:
-    "@ant-design/colors" "^6.0.0"
-    "@ant-design/icons" "^4.7.0"
-    "@ant-design/react-slick" "~0.28.1"
-    "@babel/runtime" "^7.12.5"
-    "@ctrl/tinycolor" "^3.4.0"
-    "classnames" "^2.2.6"
-    "copy-to-clipboard" "^3.2.0"
-    "lodash" "^4.17.21"
-    "memoize-one" "^6.0.0"
-    "moment" "^2.29.2"
-    "rc-cascader" "~3.6.0"
-    "rc-checkbox" "~2.3.0"
-    "rc-collapse" "~3.3.0"
-    "rc-dialog" "~8.8.2"
-    "rc-drawer" "~4.4.2"
-    "rc-dropdown" "~4.0.0"
-    "rc-field-form" "~1.26.1"
-    "rc-image" "~5.6.0"
-    "rc-input" "~0.0.1-alpha.5"
-    "rc-input-number" "~7.3.0"
-    "rc-mentions" "~1.8.0"
-    "rc-menu" "~9.6.0"
-    "rc-motion" "^2.5.1"
-    "rc-notification" "~4.6.0"
-    "rc-pagination" "~3.1.16"
-    "rc-picker" "~2.6.8"
-    "rc-progress" "~3.3.2"
-    "rc-rate" "~2.9.0"
-    "rc-resize-observer" "^1.2.0"
-    "rc-segmented" "~2.1.0"
-    "rc-select" "~14.1.1"
-    "rc-slider" "~10.0.0"
-    "rc-steps" "~4.1.0"
-    "rc-switch" "~3.2.0"
-    "rc-table" "~7.24.0"
-    "rc-tabs" "~11.16.0"
-    "rc-textarea" "~0.3.0"
-    "rc-tooltip" "~5.1.1"
-    "rc-tree" "~5.6.4"
-    "rc-tree-select" "~5.4.0"
-    "rc-trigger" "^5.2.10"
-    "rc-upload" "~4.3.0"
-    "rc-util" "^5.20.0"
-    "scroll-into-view-if-needed" "^2.2.25"
 
 "anymatch@~3.1.2":
   "integrity" "sha512-P43ePfOAIupkguHUycrc4qJ9kz8ZiuOUijaETwX7THt0Y/GNK7v0aa8rY816xWjZ7rJdA5XdMcpVFTKMq+RvWg=="
@@ -2801,11 +2735,6 @@
   "integrity" "sha512-4hNPN5jlm/N/HLMCO43v8BXKq9Z7QdAGc/VGrRD61w8gN9g/6jF9A4L1pbUgBLCffi0w9VsXfTOij5x8iTyFvg=="
   "resolved" "https://registry.npmjs.org/lodash.set/-/lodash.set-4.3.2.tgz"
   "version" "4.3.2"
-
-"lodash.throttle@^4.1.1":
-  "integrity" "sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ=="
-  "resolved" "https://registry.npmjs.org/lodash.throttle/-/lodash.throttle-4.1.1.tgz"
-  "version" "4.1.1"
 
 "lodash@^4.17.21":
   "integrity" "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
