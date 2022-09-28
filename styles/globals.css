@@ -6,36 +6,33 @@
 
 @layer components {
   .textarea-tw {
-    @apply bg-[hsla(200,0%,100%,1)]  dark:bg-[hsla(200,0%,10%,1)]  placeholder:text-slate-400 dark:placeholder:text-slate-300 text-slate-800 dark:text-slate-100 rounded-lg dark:!shadow-white textarea-box nun;
+    @apply bg-[hsla(200,0%,100%,1)]  dark:bg-[hsla(200,0%,10%,1)]  placeholder:text-slate-400 dark:placeholder:text-slate-300 text-slate-800 dark:text-slate-100 rounded-lg dark:!shadow-white textarea-box lato;
   }
   p {
-    @apply text-slate-800 dark:text-slate-100 !m-0 nun;
+    @apply text-slate-800 dark:text-slate-100 !m-0 lato;
   }
   .page-container {
     @apply h-full w-full flex flex-col items-center p-5 mb-[20em] fade-effect-quick;
   }
   .heading-lg {
-    @apply text-center text-5xl sm:mb-5 md:mb-10 font-extrabold text-teal-600 dark:text-teal-300;
+    @apply text-center text-5xl sm:mb-5 md:mb-10 font-extrabold text-teal-600 dark:text-teal-300 russo;
   }
   .heading-md {
-    @apply text-center text-3xl mb-2 font-extrabold text-teal-600 dark:text-teal-300;
+    @apply text-center text-3xl mb-2 font-extrabold text-teal-600 dark:text-teal-300 russo;
   }
   .heading-sm {
-    @apply text-center text-xl mb-1 font-extrabold text-teal-600 dark:text-teal-300;
+    @apply text-center text-xl mb-1 font-extrabold text-teal-600 dark:text-teal-300 russo;
+  }
+
+  .button2 {
+    @apply flex items-center justify-center gap-2 px-4 py-2 font-bold text-orange-700 transition cursor-pointer text-lg bg-t-bl rounded-xl hover:scale-105 hover:ring-4 ring-orange-700 fade-effect-quick;
   }
   .button {
-    @apply flex items-center gap-2 px-10 py-2 text-white transition rounded-full shadow-md bg-rose-500 shadow-rose-300 hover:bg-rose-600 hover:shadow-rose-400 hover:shadow-lg hover:scale-105 active:scale-90 justify-center;
+    @apply flex items-center justify-center gap-2 px-4 py-2 font-bold text-teal-800 transition text-lg bg-t-pl rounded-xl hover:scale-105 hover:ring-4 ring-t-pd fade-effect-quick;
   }
-  .button2 {
-    @apply flex items-center gap-2 px-10 py-2 text-white transition rounded-full shadow-md bg-teal-500 shadow-teal-300 hover:bg-teal-600 hover:shadow-teal-400 hover:shadow-lg hover:scale-105 active:scale-90 justify-center;
+  .box {
+    @apply mx-auto shadow-lg bg-white/70 px-20 py-10 rounded-xl;
   }
-}
-
-@font-face {
-  font-family: "Freude";
-
-  font-display: swap;
-  src: url("/fonts/Freude.otf");
 }
 
 html,
@@ -95,16 +92,32 @@ a {
   border: 0;
 }
 
-.nun {
-  font-family: "Nunito", sans-serif;
+.lato {
+  font-family: "Lato", sans-serif;
 }
 
-.fre {
-  font-family: "Freude", sans-serif;
+.russo {
+  font-family: "Carter One", sans-serif;
 }
 
-.ant-cascader-menu-item-content {
-  font-family: "Nunito", sans-serif;
+@media print {
+  @page {
+    size: landscape;
+    /* margin: 40%; */
+    /* marks: crop cross; */
+    /* bleed: 7pt; */
+  }
+  body {
+    color: #000;
+    background: #fff;
+  }
+  .print-nav {
+    display: none !important;
+  }
+  .canvas-print {
+    /* height: 100vh !important;
+    width: 100vw !important; */
+  }
 }
 
 .logo {
@@ -514,188 +527,6 @@ a {
   }
 }
 
-.react-toggle {
-  touch-action: pan-x;
-  z-index: 5;
-  display: inline-block;
-  position: relative;
-  cursor: pointer;
-  background-color: transparent;
-  border: 0;
-  padding: 0;
-
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-tap-highlight-color: transparent;
-}
-
-.react-toggle-screenreader-only {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  z-index: 5;
-
-  position: absolute;
-  width: 1px;
-}
-
-.react-toggle--disabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-  -webkit-transition: opacity 0.25s;
-  transition: opacity 0.25s;
-}
-
-.react-toggle-track {
-  width: 50px;
-  height: 24px;
-  padding: 0;
-  border-radius: 30px;
-  z-index: 5;
-
-  background-color: #1e1e1e;
-  -webkit-transition: all 0.2s ease;
-  -moz-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-}
-
-.react-toggle:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: #000000;
-}
-
-.react-toggle--checked .react-toggle-track {
-  background-color: var(--colorDark1);
-}
-
-.react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: #4eaef775;
-}
-
-.react-toggle-track-check {
-  position: absolute;
-  width: 14px;
-  height: 10px;
-  top: 0px;
-  bottom: 0px;
-  margin-top: auto;
-  margin-bottom: auto;
-  z-index: 5;
-
-  line-height: 0;
-  left: 8px;
-  opacity: 0;
-  -webkit-transition: opacity 0.25s ease;
-  -moz-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease;
-}
-
-.react-toggle--checked .react-toggle-track-check {
-  opacity: 1;
-  -webkit-transition: opacity 0.25s ease;
-  -moz-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease;
-}
-
-.react-toggle-track-x {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  top: 0px;
-  bottom: 0px;
-  margin-top: auto;
-  margin-bottom: auto;
-  line-height: 0;
-  right: 10px;
-  opacity: 1;
-  -webkit-transition: opacity 0.25s ease;
-  -moz-transition: opacity 0.25s ease;
-  transition: opacity 0.25s ease;
-}
-
-.react-toggle--checked .react-toggle-track-x {
-  opacity: 0;
-}
-
-.react-toggle-thumb {
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-  position: absolute;
-  top: 1px;
-  left: 1px;
-  width: 22px;
-  height: 22px;
-  border: 1px solid #4d4d4d;
-  border-radius: 50%;
-  background-color: #fafafa;
-  z-index: 5;
-
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-
-  -webkit-transition: all 0.25s ease;
-  -moz-transition: all 0.25s ease;
-  transition: all 0.25s ease;
-}
-
-.react-toggle--checked .react-toggle-thumb {
-  left: 27px;
-  border-color: var(--colorDark1);
-}
-
-.react-toggle--focus .react-toggle-thumb {
-  -webkit-box-shadow: 0px 0px 3px 2px #0099e0;
-  -moz-box-shadow: 0px 0px 3px 2px #0099e0;
-  box-shadow: 0px 0px 2px 3px #0099e0;
-}
-
-.react-toggle:active:not(.react-toggle--disabled) .react-toggle-thumb {
-  -webkit-box-shadow: 0px 0px 5px 5px #0099e0;
-  -moz-box-shadow: 0px 0px 5px 5px #0099e0;
-  box-shadow: 0px 0px 5px 5px #0099e0;
-}
-
-.ant-select-selector {
-  border-radius: 16px !important;
-  box-shadow: 4px 4px 7px #989898, -1px -1px 7px var(--colorLight1);
-}
-.ant-cascader-menu {
-  border-radius: 20px !important;
-}
-.ant-select-dropdown {
-  border-radius: 15px !important;
-}
-
-.ant-cascader-menu-item-content {
-  font-family: "Nunito", sans-serif;
-}
-
-.blue-gradient-text {
-  background: linear-gradient(
-    45deg,
-    var(--colorDark2) 0%,
-    var(--colorDark1) 35%,
-    var(--colorDark1) 81%,
-    var(--colorPop) 100%
-  );
-  /* background-size: 100% 400%; */
-
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-
-  -moz-text-fill-color: transparent;
-  -webkit-text-fill-color: transparent;
-}
-
 .range {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -854,15 +685,6 @@ input[type="range"]::-moz-range-thumb:active {
   text-align: center;
   box-shadow: 2px 2px 7px var(--colorLight2), -2px -2px 7px var(--colorLight1);
   white-space: pre-line;
-}
-
-.card__btn_next {
-  color: black;
-  border-radius: 3em;
-  cursor: pointer;
-  background: linear-gradient(145deg, #ffffff, var(--colorDark1));
-  box-shadow: 5px 5px 13px var(--colorDark1), -3px -3px 11px #ffffff;
-  font-size: var(--fontSizeHeading-sm);
 }
 
 .loader-full {
