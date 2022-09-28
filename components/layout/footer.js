@@ -3,8 +3,8 @@ import { FaGlobe, FaProductHunt, FaRobot, FaTwitter } from "react-icons/fa";
 
 function Footer() {
   return (
-    <footer className="text-gray-600 body-font">
-      <div className="container flex flex-col items-center px-5 py-8 mx-auto sm:flex-row">
+    <footer className="w-full text-gray-600 body-font print-nav">
+      <div className="flex items-center w-full px-5 pb-2 mx-auto sm:pt-6 md:pt-8 md:flex-col sm:flex-row">
         <a className="flex items-center justify-center font-medium text-gray-900 title-font md:justify-start">
           <picture>
             <source srcSet="/bmc-g small.webp" type="image/webp" />
@@ -14,20 +14,9 @@ function Footer() {
               alt="bmc logo"
             />
           </picture>
-          <span className="mx-3 text-xl">BMC Generator</span>
+          <span className="mx-3 text-xl russo logo">BMC Generator</span>
         </a>
-        <p className="mt-4 text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0">
-          © 2022 Ty Fiero —
-          <a
-            href="https://twitter.com/FieroTy"
-            className="ml-1 text-gray-600"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            @FieroTy
-          </a>
-        </p>
-        <span className="inline-flex justify-center mt-4 sm:ml-auto sm:mt-0 sm:justify-start">
+        <span className="inline-flex items-center justify-center mt-2 mb-2">
           <a href="https://twitter.com/FieroTy" className="text-gray-500">
             <FaTwitter />
           </a>
@@ -41,6 +30,15 @@ function Footer() {
             <FaProductHunt />
           </a>
         </span>
+        <p className="mt-4 text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-0 sm:border-gray-200 sm:py-2 sm:mt-0 lato">
+          © 2022 Ty Fiero
+          <a
+            href="https://twitter.com/FieroTy"
+            className="ml-1 text-gray-600"
+            rel="noopener noreferrer"
+            target="_blank"
+          ></a>
+        </p>
       </div>
     </footer>
   );

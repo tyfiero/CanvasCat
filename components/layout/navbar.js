@@ -2,10 +2,12 @@ import React from "react";
 import { Squash as Hamburger } from "hamburger-react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { BsSun, BsMoon,  } from "react-icons/bs";
+import { BsSun, BsMoon } from "react-icons/bs";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
+import { FaCoins } from "react-icons/fa";
+import { UserContext } from "../../firebase/context";
 
 function Navbar() {
   const prefersReducedMotion = useReducedMotion();
@@ -13,7 +15,8 @@ function Navbar() {
   const [isToggled, setIsToggled] = React.useState(true);
   const [selected, setSelected] = React.useState("home");
   const router = useRouter();
-
+  const { aiCredits } = React.useContext(UserContext);
+  let cleanCredits = Number(aiCredits).toFixed(0);
   const { systemTheme, theme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
   const items = [
@@ -136,7 +139,7 @@ function Navbar() {
   };
   return (
     <>
-      <nav className="relative items-center justify-between w-full px-4 py-4 select-none sm:block md:flex sm:flex-col md:flex-row">
+      <nav className="relative items-center justify-between w-full px-4 py-4 select-none sm:block md:flex sm:flex-col md:flex-row print-nav">
         <div className="z-20 flex items-start sm:w-full md:w-1/4 min-h-10 grow-effect">
           <Link href="/">
             <a
@@ -152,7 +155,7 @@ function Navbar() {
                   height={48}
                 />
               </div>
-              <h1 className="z-20 text-3xl font-bold leading-tight tracking-tighter md:text-5xl md:pr-8 logo f1 whitespace-nowrap">
+              <h1 className="z-20 font-bold leading-tight tracking-tighter sm:text-3xl lg:text-5xl lg:pr-8 logo f1 whitespace-nowrap russo">
                 BMC Generator
               </h1>
             </a>
@@ -193,6 +196,16 @@ function Navbar() {
                   handleClick={handleClick}
                 />
               ))}
+              <li>
+                <Link href={"/buy-credits"}>
+                  <a className="flex items-center gap-1 transition hover:scale-110">
+                    <p className="pt-1 text-lg font-bold text-left text-t-pd">
+                      {cleanCredits}
+                    </p>
+                    <FaCoins className="mt-1 scale-125 text-t-pd" />
+                  </a>
+                </Link>
+              </li>
               <li>{renderThemeChanger()}</li>
             </motion.ul>
           </>
@@ -222,9 +235,9 @@ function MenuItem({ selected, handleClick, name, icon }) {
       <Link href={`/${name === "home" ? "" : name}`}>
         <a
           className={
-            "flex gap-2 items-center capitalize " +
+            "flex gap-2 items-center capitalize lato" +
             (selected === name
-              ? "  font-bold sm:text-3xl md:text-xl rounded-2xl text-teal-500 underline underline-offset-4 decoration-wavy px-2 py-1"
+              ? "  font-bold sm:text-3xl md:text-xl rounded-2xl text-teal-500 underline underline-offset-4 decoration-wavy px-2 py-1 "
               : " md:hover:text-teal-400 skew-x-0 transition sm:text-3xl md:text-xl text-teal-900 dark:text-teal-50 ")
           }
           href="#"
