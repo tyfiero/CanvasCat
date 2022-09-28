@@ -182,8 +182,12 @@ function BuyCredits(props) {
         }}
       />
       <div className="mt-4 font-semibold text-center">
-        <h1 className="md:text-5xl fre text-t-bd sm:text-2xl">Credit Refill</h1>
-        <p>My credits: {aiCredits}</p>
+        <h1 className="md:text-5xl russo text-t-bd sm:text-2xl">
+          Credit Refill
+        </h1>
+        <p className="!mt-5 heading-sm text-t-bl">
+          My credits: <span className="text-t-bd">{aiCredits}</span>
+        </p>
         {/* <p className="p-5">
             {" "}
             <span className="text-lg font-bold text-t-pm">
@@ -233,23 +237,16 @@ function BuyCredits(props) {
               >
                 <div className="relative p-4">
                   <div className="flex justify-center">
-                    <span className="inline-flex px-4 py-1 mb-0 text-4xl font-semibold leading-5 tracking-wide transition rounded-full group-hover:text-white blue-gradient-text fre whitespace-nowrap ">
+                    <span className="inline-flex px-4 py-1 mb-0 text-4xl font-semibold leading-5 tracking-wide transition rounded-full group-hover:text-red-300 russo whitespace-nowrap text-t-bd ">
                       20 Credits
                     </span>
                   </div>
-                  <div className="flex justify-center mt-4 text-3xl font-extrabold leading-none transition duration-1000 text-blues-200 group-hover:text-white nun">
+                  <div className="flex justify-center mt-4 text-3xl font-extrabold leading-none transition duration-1000 text-blues-200 group-hover:text-white lato">
                     $4.99
-                    {/* <span className="pt-8 ml-1 text-2xl font-medium leading-8 text-gray-500 transition group-hover:text-gray-200 dark:text-white fre ">
+                    {/* <span className="pt-8 ml-1 text-2xl font-medium leading-8 text-gray-500 transition group-hover:text-gray-200 dark:text-white russo ">
                         /month
                       </span> */}
                   </div>
-                  {/* <p className="mt-4 text-md">Plan includes :</p> */}
-                  {/* <ul className="w-full mt-2 mb-6 text-sm">
-                    <li className="flex items-center mb-3 dark:text-white nun ">
-                      <FaCheckCircle className="mr-4 text-xl text-t-bl" />
-                      $0.25 per credit
-                    </li>
-                  </ul> */}
                 </div>
 
                 <button
@@ -289,24 +286,17 @@ function BuyCredits(props) {
               >
                 <div className="relative p-4">
                   <div className="flex justify-center">
-                    <span className="inline-flex px-4 py-1 mb-0 text-4xl font-semibold leading-5 tracking-wide transition rounded-full group-hover:text-white blue-gradient-text fre whitespace-nowrap">
+                    <span className="inline-flex px-4 py-1 mb-0 text-4xl font-semibold leading-5 tracking-wide transition rounded-full group-hover:text-red-300 text-t-bd russo whitespace-nowrap">
                       100 Credits
                     </span>
                   </div>
-                  <div className="flex justify-center mt-4 text-3xl font-extrabold leading-none transition duration-1000 text-blues-200 group-hover:text-white nun">
+                  <div className="flex justify-center mt-4 text-3xl font-extrabold leading-none transition duration-1000 text-blues-200 group-hover:text-white lato">
                     $19.99
-                    {/* <span className="pt-8 ml-1 text-2xl font-medium leading-8 text-gray-500 transition group-hover:text-gray-200 dark:text-white fre ">
+                    {/* <span className="pt-8 ml-1 text-2xl font-medium leading-8 text-gray-500 transition group-hover:text-gray-200 dark:text-white russo ">
                         /month
                       </span> */}
                   </div>
                   {/* <p className="mt-4 text-md">Plan includes :</p> */}
-                  {/* <ul className="w-full mt-2 mb-6 text-sm">
-                    <li className="flex items-center mb-3 dark:text-white nun ">
-                      <FaCheckCircle className="mr-4 text-xl text-t-bl" />
-                      Free ebook included! Top 10 Software Business Ideas you
-                      can start this week.
-                    </li>
-                  </ul> */}
 
                   <div className="flex"></div>
                 </div>
