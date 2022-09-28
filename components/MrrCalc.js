@@ -115,7 +115,7 @@ function MrrCalculator() {
         <div className="flex gap-5 m-5 sm:flex-col md:flex-row sm:items-center">
           <MRRChart chartDataPoints={chartDataPoints} />
 
-          <div className="normal-box bg-[hsla(200,0%,100%,0.764)]  dark:bg-[hsla(200,0%,20%,0.764)] w-[26em] flex-col flex !rounded-xl  nun ">
+          <div className="normal-box bg-[hsla(200,0%,100%,0.764)]  dark:bg-[hsla(200,0%,20%,0.764)] w-[26em] flex-col flex !rounded-xl  lato ">
             <div className="flex justify-between">
               <p>Growth Rate </p>
               <div className="flex">

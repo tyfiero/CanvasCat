@@ -16,7 +16,7 @@ const AccordionItem = ({
       className={"shadow-0 accordionItem !m-0 " + (isActive ? " active" : "")}
     >
       <div
-        className="!px-5 bg-white/80 dark:bg-slate-400 accordionTitle transition fre flex justify-between "
+        className="!px-5 bg-white/80 dark:bg-slate-400 accordionTitle transition russo flex justify-between "
         onClick={onItemClick}
       >
         <div className="flex items-center gap-2 h-fit">
