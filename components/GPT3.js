@@ -138,7 +138,7 @@ const GPTtool = ({ showButton }) => {
             <div className="flex flex-col w-full ">
               <div className="flex flex-col w-full ">
                 <div className="flex items-center justify-between ai-output-box bg-white/80 min-h-[20em] dark:bg-slate-800/60">
-                  <h3 className="text-2xl text-gray-700 nun dark:text-t-pd">
+                  <h3 className="text-2xl text-gray-700 lato dark:text-t-pd">
                     {"AI Disclaimer"}
                   </h3>
                   <p className="text-gray-700">
@@ -195,7 +195,7 @@ const GPTtool = ({ showButton }) => {
                   </p>
                 </div>
                 <TextareaAutosize
-                  className="w-[99%] rounded-md nun   textarea-tw dark:!bg-slate-900/90 dark:text-white"
+                  className="w-[99%] rounded-md lato   textarea-tw dark:!bg-slate-900/90 dark:text-white"
                   // defaultValue={contentTitle}
                   onChange={(e) => {
                     // console.log(e.target.value)

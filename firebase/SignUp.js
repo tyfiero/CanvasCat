@@ -63,33 +63,33 @@ export default function Signup({ setMode }) {
 
   return (
     <>
-      <div className="fade-effect-quick">
-        <div>
-          <h2 className="mb-4 text-center">Sign Up</h2>
-          <form onSubmit={handleSubmit}>
+      <div className="w-full fade-effect-quick page-container">
+        <div className="sm:w-full md:w-2/3 xl:w-1/3 box">
+          <h2 className="mb-4 text-2xl text-center heading-md">Sign Up</h2>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-3">
             <div id="email">
-              <p>Email</p>
+              <h4 className="font-bold !mb-0">Email</h4>
               <input
                 type="email"
                 ref={emailRef}
                 required
-                className="textarea-tw"
+                className="w-full textarea-tw"
               />
             </div>
             <div id="password">
-              <p>Password</p>
+              <h4 className="font-bold !mb-0">Password</h4>
               <input
                 type="password"
-                className="textarea-tw"
+                className="w-full textarea-tw"
                 ref={passwordRef}
                 required
               />
             </div>
             <div id="password-confirm">
-              <p>Password Confirmation</p>
+              <h4 className="font-bold !mb-0">Password Confirmation</h4>
 
               <input
-                className="textarea-tw"
+                className="w-full textarea-tw"
                 type="password"
                 ref={passwordConfirmRef}
                 required
@@ -99,7 +99,7 @@ export default function Signup({ setMode }) {
             <div className="flex justify-center w-full">
               <button
                 disabled={loading}
-                className="px-4 py-2 mt-2 mb-5 text-xl text-white transition bg-t-bl rounded-xl hover:scale-110 hover:ring-4 ring-t-bd"
+                className="button !bg-teal-300 !px-10 w-2/3 mx-auto "
                 type="submit"
               >
                 Sign Up

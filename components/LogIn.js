@@ -17,7 +17,7 @@ function LogIn({ children }) {
   }, [currentUser]);
 
   return (
-    <div className="w-full fade-effect-quick">
+    <div className="w-full h-full fade-effect-quick">
       {mode === "signIn" && <SignIn />}
       {mode === "signUp" && <Signup setMode={setMode} />}
       {mode === "approved" && <>{children}</>}
@@ -31,17 +31,12 @@ function LogIn({ children }) {
       )}
       {mode !== "default" && <div className="flex flex-col"></div>}
       {mode === "default" && (
-        <div className="flex flex-col gap-2">
-          <button
-            className="px-4 py-2 text-xl text-white transition bg-t-bl rounded-xl hover:scale-110 hover:ring-4 ring-t-bd"
-            onClick={() => setMode("signUp")}
-          >
+        <div className="flex flex-col w-1/3 h-full gap-2 mx-auto">
+          <h1 className="mt-10 heading-lg">Welcome!</h1>
+          <button className="button2" onClick={() => setMode("signUp")}>
             Sign up
           </button>
-          <button
-            className="px-4 py-2 text-xl text-black transition bg-t-pl rounded-xl hover:scale-110 hover:ring-4 ring-t-pd"
-            onClick={() => setMode("signIn")}
-          >
+          <button className="button" onClick={() => setMode("signIn")}>
             Sign in
           </button>
         </div>
