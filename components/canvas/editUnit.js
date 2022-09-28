@@ -115,7 +115,7 @@ function EditUnit({ title, kind, description, qContext, type }) {
       <div className="relative flex flex-col p-5 rounded-xl group fade-effect-quick">
         <p className="text-sm">{description}</p>
         <button
-          className="absolute top-0 right-0 px-2 nun text-base py-0 card__btn_next  flex items-center justify-center md:hover:scale-105  md:active:scale-95 fade-effect cursor-pointer !shadow-clear-pd3 md:hover:shadow-xl m-1 drop-shadow-xl !bg-gradient-to-br from-white via-t-pl  to-t-pm !shadow-2xl  transition duration-500"
+          className="absolute top-0 right-0 px-2 lato text-base py-0 card__btn_next  flex items-center justify-center md:hover:scale-105  md:active:scale-95 fade-effect cursor-pointer !shadow-clear-pd3 md:hover:shadow-xl m-1 drop-shadow-xl !bg-gradient-to-br from-white via-t-pl  to-t-pm !shadow-2xl  transition duration-500"
           onClick={() => {
             if (aiLoading) {
               console.log("Please wait for the first request to load");
