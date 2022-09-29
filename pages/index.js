@@ -62,32 +62,36 @@ export default function Home() {
           </motion.h2>
           <motion.div variants={textAnimate} className="text-box ">
             <p className="font-bold">
-              Just input what your business does or will do, add some
-              stakeholders and key features, and GPT-3 will spit out a full BMC
-              ready for your next pitch!
+              Generate a business model canvas with just one click. Simply input
+              what some context about your business, and GPT-3 will spit out a
+              full BMC ready for your next pitch!
               <br />
               <br />
-              First five generations are free!
-              <br />
-              <br />
-              Tryna have some fun with an AI today??
+              First five generations are free, and each successive generation is
+              dirt cheap!
             </p>
           </motion.div>
 
           <motion.div
             variants={thirdAnimate}
-            className="flex items-center content-center justify-center w-full gap-2 sm:mt-5 sm:scale-90"
+            className="flex flex-col items-center content-center justify-center w-full gap-2 sm:mt-5 sm:scale-90 md:mt-10"
           >
-            <Link href={"/bummer"}>
-              <a className="button">
-                Nah fam <FaSadTear />
-              </a>
-            </Link>
-            <Link href={"/create"}>
-              <a className="button2">
-                Ah Hell Yeah! <FaArrowRight />
-              </a>
-            </Link>
+            <h3 className="w-full heading-sm">
+              {" "}
+              Tryna have some fun with an AI today??
+            </h3>
+            <div className="flex gap-3">
+              <Link href={"/bummer"}>
+                <a className="button">
+                  Nah fam <FaSadTear />
+                </a>
+              </Link>
+              <Link href={"/create"}>
+                <a className="button2">
+                  Ah Hell Yeah! <FaArrowRight />
+                </a>
+              </Link>
+            </div>
           </motion.div>
         </TextSection>
         <motion.div
