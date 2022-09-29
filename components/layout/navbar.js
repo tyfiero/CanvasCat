@@ -156,7 +156,7 @@ function Navbar() {
                 />
               </div>
               <h1 className="z-20 font-bold leading-tight tracking-tighter sm:text-3xl lg:text-5xl lg:pr-8 logo f1 whitespace-nowrap russo">
-                BMC Generator
+                CanvasCat
               </h1>
             </a>
           </Link>

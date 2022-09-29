@@ -14,7 +14,7 @@ function Footer() {
               alt="bmc logo"
             />
           </picture>
-          <span className="mx-3 text-xl russo logo">BMC Generator</span>
+          <span className="mx-3 text-xl russo logo">CanvasCat</span>
         </a>
         <span className="inline-flex items-center justify-center mt-2 mb-2">
           <a href="https://twitter.com/FieroTy" className="text-gray-500">
