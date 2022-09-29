@@ -18,9 +18,7 @@ import { getFirestore } from "firebase/firestore";
 
 import TextareaAutosize from "react-textarea-autosize";
 import { BiSend } from "react-icons/bi";
-import Toggle from "react-toggle";
 import {
-  BsArrow90DegRight,
   BsArrowRight,
   BsHourglassSplit,
 } from "react-icons/bs";
@@ -36,8 +34,7 @@ const GPTtool = ({ showButton }) => {
   const [oldInput, setoldInput] = useState("");
 
   const [GPT3Output, setGPT3Output] = useState("");
-  // const [GPT3Status, setGPT3Status] = useState(false);
-  // const [GPTJStatus, setGPTJStatus] = useState(false);
+
 
   const { currentUser, logout } = useAuth();
   const { aiCredits } = useContext(UserContext);

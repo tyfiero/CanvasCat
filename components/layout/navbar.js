@@ -26,9 +26,6 @@ function Navbar() {
       name: "create",
     },
     {
-      name: "tools",
-    },
-    {
       name: "about",
     },
     {

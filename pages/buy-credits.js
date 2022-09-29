@@ -1,25 +1,10 @@
 import { React, useContext, useEffect, useState } from "react";
-import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
-import Toggle from "react-toggle";
 import Script from "next/script";
-// import dynamic from "next/dynamic";
-// import { UserContext } from "../../../lib/context";
 import { UserContext } from "../firebase/context";
-
-// import { auth } from "../../../lib/firebase";
-
 import toast from "react-hot-toast";
 import PaddleLoader from "../components/PaddleLoader";
 import axios from "axios";
-// import { doc, getFirestore, updateDoc } from "firebase/firestore";
-
 function BuyCredits(props) {
-  // const [annual, setAnnual] = useState(true);
-  // const [successPopUp, setSuccessPopUp] = useState(false);
-  // const [plan, setPlan] = useState("Basic");
-  // const [credits, setCredits] = useState(100);
-  // const [cancelSubUrl, setCancelSubUrl] = useState(null);
-
   const { user, aiCredits } = useContext(UserContext);
 
   useEffect(() => {
@@ -38,49 +23,6 @@ function BuyCredits(props) {
     }
   }, []);
 
-  // const updateIdea = async (
-  //   amount,
-  //   planType,
-  //   cancelUrl,
-  //   updateUrl,
-  //   paddleUserId,
-  //   nextBillDate,
-  //   subscriptionStartDate,
-  //   subscriptionID
-  // ) => {
-  //   let uid;
-
-  //   if (user?.uid) {
-  //     uid = user?.uid;
-  //   } else if (userUIDRedux) {
-  //     uid = userUIDRedux;
-  //   } else if (auth.currentUser?.uid) {
-  //     uid = auth.currentUser?.uid;
-  //   } else {
-  //     uid = "default";
-  //     // console.log("no uid available :(");
-  //   }
-  //   const ref = doc(getFirestore(), "users", uid);
-
-  //   let data = {
-  //     credits: amount,
-  //     plan: planType,
-  //     cancelUrl: cancelUrl,
-  //     updateUrl: null,
-  //     paddleUserID: null,
-  //     nextBillDate: null,
-  //     subscriptionStartDate: null,
-  //     subscriptionID: null,
-  //   };
-  //   await updateDoc(ref, data)
-  //     .then(() => {
-  //       toast.success(`New AI credit balance: ${amount}`);
-  //     })
-  //     .catch((error) => {
-  //       toast.error("Error occured, please contact support");
-  //       console.log("Update failed!" + error);
-  //     });
-  // };
 
   function checkoutComplete(data) {
     // console.log(data);
