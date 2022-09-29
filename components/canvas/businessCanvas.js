@@ -10,16 +10,19 @@ import HelpAccordion from "../Accordion";
 import BMC from "./bmc";
 import SWOT from "./swot";
 import Identity from "./identity";
+import html2canvas from "html2canvas";
+
 var debounce = require("lodash.debounce");
 var set = require("lodash.set");
 
 function BusinessCanvas(props) {
   const [sendAll, setSendAll] = useRecoilState(sendAllState);
   const [responses, setResponses] = useRecoilState(responsesState);
-  console.log(responses);
+  // console.log(responses);
   const [sendAllType, setSendAllType] = useRecoilState(sendAllTypeState);
   const { aiCredits } = React.useContext(UserContext);
   const [editContext, setEditContext] = React.useState(false);
+  const printRef = React.useRef();
 
   const [context1, setContext1] = React.useState("");
   const [context2, setContext2] = React.useState("");
@@ -40,7 +43,26 @@ function BusinessCanvas(props) {
     ". The key benefits are " +
     context3 +
     ".";
+  // const handleDownloadImage = async () => {
+  //   const element = printRef.current;
+  //   const canvas = await html2canvas(element);
 
+  //   const data = canvas.toDataURL("image/jpg");
+  //   const link = document.createElement("a");
+
+  //   if (typeof link.download === "string") {
+  //     link.href = data;
+  //     link.download = "image.jpg";
+
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     document.body.removeChild(link);
+  //     window.print();
+  //   } else {
+  //     window.print();
+  //     window.open(data);
+  //   }
+  // };
   return (
     <>
       <div className="flex flex-col items-center w-full canvas-print ">
@@ -172,20 +194,7 @@ function BusinessCanvas(props) {
                 className="button2 print-nav"
                 onClick={() => {
                   if (typeof window !== "undefined") {
-                    // var css = "@page { size: landscape; }",
-                    //   head =
-                    //     document.head || document.getElementsByTagName("head")[0],
-                    //   style = document.createElement("style");
-
-                    // style.type = "text/css";
-                    // style.media = "print";
-
-                    // if (style.styleSheet) {
-                    //   style.styleSheet.cssText = css;
-                    // } else {
-                    //   style.appendChild(document.createTextNode(css));
-                    // }
-                    // head.appendChild(style);
+                    // handleDownloadImage();
                     window.print();
                   }
                 }}
@@ -194,7 +203,9 @@ function BusinessCanvas(props) {
               </button>
             </div>
 
-            <BMC contextSentence={contextSentence} />
+            <div className="w-full h-full bg-white/80" ref={printRef}>
+              <BMC print={print} contextSentence={contextSentence} />
+            </div>
           </TabPanel>
           <TabPanel selectedClassName=" !block" className="hidden ">
             <div className="flex flex-col items-center justify-center w-full h-full gap-0 rounded-tl-none glass-box fade-effect-quick">
