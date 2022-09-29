@@ -98,7 +98,7 @@ export default function Home() {
           className="md:w-1/3 sm:w-full h-[23em] md:mb-12"
           variants={photoAnimate}
         >
-          <ImageSection src="/bmc-g.webp" alt="Image of bmc logo" />
+          <ImageSection src="/kitty.webp" alt="Image of CanvasCat" />
         </motion.div>
       </DualSection>
     </div>

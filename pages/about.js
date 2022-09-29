@@ -80,7 +80,7 @@ function About() {
           className="md:w-1/3 sm:w-full h-[23em] md:mb-12"
           variants={photoAnimate}
         >
-          <ImageSection src="/bmc-g.webp" alt="Image of bmc logo" />
+          <ImageSection src="/kitty-sm.webp" alt="Image of kitty" />
         </motion.div>
       </DualSection>
     </div>

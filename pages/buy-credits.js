@@ -23,7 +23,6 @@ function BuyCredits(props) {
     }
   }, []);
 
-
   function checkoutComplete(data) {
     // console.log(data);
     // alert("Thanks for your purchase.");
@@ -180,11 +179,11 @@ function BuyCredits(props) {
                 <div className="relative p-4">
                   <div className="flex justify-center">
                     <span className="inline-flex px-4 py-1 mb-0 text-4xl font-semibold leading-5 tracking-wide transition rounded-full group-hover:text-red-300 russo whitespace-nowrap text-t-bd ">
-                      20 Credits
+                      100 Credits
                     </span>
                   </div>
                   <div className="flex justify-center mt-4 text-3xl font-extrabold leading-none transition duration-1000 text-blues-200 group-hover:text-white lato">
-                    $4.99
+                    $1.99
                     {/* <span className="pt-8 ml-1 text-2xl font-medium leading-8 text-gray-500 transition group-hover:text-gray-200 dark:text-white russo ">
                         /month
                       </span> */}
@@ -193,7 +192,7 @@ function BuyCredits(props) {
 
                 <button
                   className={
-                    "w-full px-3 py-2  transition-colors duration-700 transform rounded-lg shadow text-md   text-white hover:bg-white hover:text-t-bl bg-t-bl"
+                    "w-full px-3 py-2  transition-colors duration-700 transform rounded-lg shadow text-md   text-white hover:bg-white hover:text-t-bl bg-t-bl lato"
                   }
                   onClick={() => {
                     //   if (paidPlan !== "Hobbyist") {
@@ -229,11 +228,11 @@ function BuyCredits(props) {
                 <div className="relative p-4">
                   <div className="flex justify-center">
                     <span className="inline-flex px-4 py-1 mb-0 text-4xl font-semibold leading-5 tracking-wide transition rounded-full group-hover:text-red-300 text-t-bd russo whitespace-nowrap">
-                      100 Credits
+                      500 Credits
                     </span>
                   </div>
                   <div className="flex justify-center mt-4 text-3xl font-extrabold leading-none transition duration-1000 text-blues-200 group-hover:text-white lato">
-                    $19.99
+                    $4.99
                     {/* <span className="pt-8 ml-1 text-2xl font-medium leading-8 text-gray-500 transition group-hover:text-gray-200 dark:text-white russo ">
                         /month
                       </span> */}
@@ -245,7 +244,7 @@ function BuyCredits(props) {
 
                 <button
                   className={
-                    "w-full px-3 py-2  transition-colors duration-700 transform rounded-lg shadow text-md   text-white hover:bg-white hover:text-t-bl bg-t-bl"
+                    "w-full px-3 py-2  transition-colors duration-700 transform rounded-lg shadow text-md   text-white hover:bg-white hover:text-t-bl bg-t-bl lato"
                   }
                   onClick={() => {
                     //   if (paidPlan !== "Hobbyist") {

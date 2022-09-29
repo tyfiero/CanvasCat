@@ -9,12 +9,12 @@ function Footer() {
           <picture>
             <source srcSet="/bmc-g small.webp" type="image/webp" />
             <img
-              src="/bmc-g small.webp"
-              className="h-auto w-7"
-              alt="bmc logo"
+              src="/kitty-sm.webp"
+              className="w-12 h-auto"
+              alt="CanvasCat logo"
             />
           </picture>
-          <span className="mx-3 text-xl russo logo">CanvasCat</span>
+          <span className="mx-1 text-xl russo logo">CanvasCat</span>
         </a>
         <span className="inline-flex items-center justify-center mt-2 mb-2">
           <a href="https://twitter.com/FieroTy" className="text-gray-500">

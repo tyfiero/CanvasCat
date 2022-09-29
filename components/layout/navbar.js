@@ -140,21 +140,25 @@ function Navbar() {
         <div className="z-20 flex items-start sm:w-full md:w-1/4 min-h-10 grow-effect">
           <Link href="/">
             <a
-              className="flex items-center gap-3 transition md:hover:scale-[104%] active:scale-95"
+              className="flex items-center gap-1 transition md:hover:scale-[104%] active:scale-95"
               href="#"
             >
-              <div className="z-20 w-12 h-12 transition ">
+              <div className="relative z-20 w-[81px] h-[54px] transition ">
                 <Image
-                  src="/bmc-g.webp"
-                  alt="bmc-g logo"
+                  src="/kitty-sm.webp"
+                  alt="CanvasCat logo"
                   className="z-20"
-                  width={48}
-                  height={48}
+                  layout="fill"
                 />
               </div>
-              <h1 className="z-20 font-bold leading-tight tracking-tighter sm:text-3xl lg:text-5xl lg:pr-8 logo f1 whitespace-nowrap russo">
-                CanvasCat
-              </h1>
+              <div className="flex lg:pr-8">
+                <h1 className="z-20 font-bold leading-tight tracking-tighter sm:text-3xl lg:text-5xl logo f1 whitespace-nowrap russo">
+                  Canvas
+                </h1>
+                <h1 className="z-20 font-bold leading-tight tracking-tighter sm:text-3xl lg:text-5xl logo f1 whitespace-nowrap russo">
+                  Cat
+                </h1>
+              </div>
             </a>
           </Link>
         </div>

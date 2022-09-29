@@ -16,7 +16,7 @@ function ImageSection({ src, alt }) {
   return (
     <motion.div
       variants={imgAnimate}
-      className="md:w-full md:h-[425px] sm:w-4/5 sm:h-[311px] relative shadow-xl rounded-xl shadow-red-600/30 md:mt-11 "
+      className="md:w-full md:h-[425px] sm:w-4/5 sm:h-[311px] relative  rounded-xl  md:mt-11 "
     >
       <Image
         src={src}
