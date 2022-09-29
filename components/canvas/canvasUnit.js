@@ -12,7 +12,7 @@ import { UserContext } from "../../firebase/context";
 var get = require("lodash.get");
 var set = require("lodash.set");
 
-function CanvasUnit({ title, kind, description, qContext, type, icon }) {
+function CanvasUnit({ title, kind, description, qContext, type, icon, }) {
   const [savedText, setSavedText] = React.useState("");
   const [text, setText] = React.useState("");
   const [aiLoading, setAiLoading] = React.useState(false);
