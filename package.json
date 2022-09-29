@@ -15,6 +15,7 @@
     "firebase-admin": "^11.0.0",
     "framer-motion": "^6.3.10",
     "hamburger-react": "^2.5.0",
+    "html2canvas": "^1.4.1",
     "lodash": "^4.17.21",
     "lodash.debounce": "^4.0.8",
     "lodash.get": "^4.4.2",
