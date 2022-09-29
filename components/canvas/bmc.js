@@ -15,7 +15,7 @@ import Link from "next/link";
 import HelpAccordion from "../Accordion";
 import EditUnit from "./editUnit";
 
-function BMC({ layout, setLayout, contextSentence }) {
+function BMC({ layout, setLayout, contextSentence, }) {
   const { aiCredits } = React.useContext(UserContext);
 
   return (
