@@ -34,23 +34,23 @@ async function gpt3APIRequest(req) {
   if (type === "plan") {
     // console.log("Kind is not null or undefined")
     if (kind === "threats") {
-      aiInput = `${userInput} Write me a numbered list of macro threats to my business.`;
+      aiInput = `${userInput} Write a numbered list of macro threats to my business: `;
     } else if (kind === "opportunities") {
-      aiInput = `${userInput} Write me a numbered list of opportunities and favorable external factors for my business.`;
+      aiInput = `${userInput} Write a numbered list of opportunities and favorable external factors for my business.`;
     } else if (kind === "pitch") {
       aiInput = `${userInput} Write an elevator pitch for my business.`;
     } else if (kind === "slogan") {
-      aiInput = `${userInput} Write me three creative, memorable slogans for my business.`;
+      aiInput = `${userInput} Write three creative, memorable slogans for my business.`;
     } else if (kind === "names") {
-      aiInput = `${userInput} Write a numbered list of creative, unique brand names for my business.`;
+      aiInput = `${userInput} Write a numbered list of creative, unique brand names for my business. `;
     } else if (kind === "vision") {
-      aiInput = `${userInput} What is my vision for the future of my product?`;
+      aiInput = `${userInput} What is my vision for the future of my product? `;
     } else if (kind === "strengths") {
-      aiInput = `${userInput} Write me a numbered list of strengths and competitive advantages for my business.`;
+      aiInput = `${userInput} Write a numbered list of strengths and competitive advantages for my business. `;
     } else if (kind === "weaknesses") {
-      aiInput = `${userInput} Write me a numbered list of weaknesses and shortcomings of my business.`;
+      aiInput = `${userInput} Write a numbered list of weaknesses and shortcomings of my business.`;
     } else if (kind === "partners") {
-      aiInput = `${userInput} Write me a numbered list of people or businesses I could partner with to help my business.`;
+      aiInput = `${userInput} Write a numbered list of people or businesses I could partner with to help my business.`;
     } else if (kind === "activities") {
       aiInput = `${userInput} What are the essential activities of my business? And what does my business do for people?`;
     } else if (kind === "resources") {
@@ -60,13 +60,13 @@ async function gpt3APIRequest(req) {
     } else if (kind === "relationships") {
       aiInput = `${userInput} How should I interact with my customers, and what should my relationship with the customer look like?`;
     } else if (kind === "segments") {
-      aiInput = `${userInput} Write me a numbered list of customer segments for my business.`;
+      aiInput = `${userInput} Write a numbered list of customer segments for my business.`;
     } else if (kind === "channels") {
-      aiInput = `${userInput} Write me a numbered list of channels or platforms should I pursue to find my ideal customers.`;
+      aiInput = `${userInput} Write a numbered list of channels or platforms should I pursue to find my ideal customers.`;
     } else if (kind === "cost") {
-      aiInput = `${userInput} Write me a numbered list of costs and expenses that should I be aware of, and how much will my business cost?`;
+      aiInput = `${userInput} Write a numbered list of costs and expenses that should I be aware of, and how much will my business cost?`;
     } else if (kind === "revenue") {
-      aiInput = `${userInput} Write me a numbered list of ways that my business could make revenue.`;
+      aiInput = `${userInput} Write a numbered list of ways that my business could make revenue.`;
     }
   } else {
     // console.log("Where it needs to be")
