@@ -1,5 +1,4 @@
-// import stringSimilarity from "string-similarity-js";
-// import fetch from "node-fetch";
+
 import React from "react";
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
