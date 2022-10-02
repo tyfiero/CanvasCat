@@ -9,7 +9,6 @@ function BuyCredits(props) {
 
   useEffect(() => {
     const Paddle = window.Paddle;
-    // console.log(Paddle)
     // eslint-disable-next-line
     if (typeof Paddle !== "undefined") {
       // console.log("IT RAN, NO EXCUSES");
