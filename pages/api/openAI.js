@@ -16,8 +16,6 @@ const limiter = rateLimit({
 });
 
 async function gpt3APIRequest(req) {
-  //   console.log(req.body.input);
-  // console.log(process.env.OPENAI_API_KEY);
   let user = req.body.user;
   let userInput = req.body.input;
   let type = req.body.type;
