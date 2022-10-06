@@ -199,8 +199,7 @@ function BuyCredits(props) {
                     if (Paddle.Audience.AllowPopup() === true) {
                       // eslint-disable-next-line
                       Paddle.Checkout.open({
-                        product: "776865",
-                        // product: "769844",
+                        product: "793676",
                         email: user.email || null,
                         passthrough: `${user?.uid}`,
                         successCallback: checkoutComplete,
