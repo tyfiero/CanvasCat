@@ -9,15 +9,15 @@ export default async function handler(req, res) {
   if (!req.body) return res.status(401).json({ error: "No req body found" });
   const { verifyPaddleWebhook } = require("verify-paddle-webhook");
   const querystring = require("querystring");
-  let credits;
-
-  //CREDIT TYPE
-  if (req.body.product_id === "776865") {
-    credits = 20;
-  } else if (req.body.product_id === "776868") {
-    credits = 100;
-  }
-
+  // let credits = 0;
+  // console.log(req.body);
+  // //CREDIT TYPE
+  // if (req.body.product_id === "793676") {
+  //   credits = 100;
+  // } else if (req.body.product_id === "776868") {
+  //   credits = 500;
+  // }
+  // console.log(credits);
   // Request from front end
   if (req.body.client !== "undefined") {
     console.log("Client request");

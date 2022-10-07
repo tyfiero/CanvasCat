@@ -27,14 +27,14 @@ function BuyCredits(props) {
     // alert("Thanks for your purchase.");
 
     let saveToDB = async () => {
-      let creditNum = data.product.id === "776865" ? 100 : 20;
+      let creditNum = data.product.id === 793676 ? 100 : 500;
+      let creditsToAdd = Number(Math.floor(aiCredits)) + Number(creditNum);
 
-      // console.log(creditNum);
       axios({
         method: "POST",
         url: "/api/paddleWebhooks",
         data: {
-          credits: aiCredits + creditNum,
+          credits: creditsToAdd,
           user: data.checkout.passthrough,
           client: true,
         },
@@ -50,43 +50,6 @@ function BuyCredits(props) {
         console.log(error);
         toast.error("Purchase Failed :(");
       });
-    // let updateUrl;
-    // let cancelUrl;
-    // let paddleUserId;
-    // let nextBillDate;
-    // let subscriptionStartDate;
-    // let subscriptionID;
-
-    // if (
-    //   data.product.name === "Hobbyist" ||
-    //   data.product.name === "Hobbyist Monthly"
-    // ) {
-    //   setCredits(0);
-    //   setPlan("Hobbyist");
-    //   // updateIdea(0, "Hobbyist");
-    //   setSuccessPopUp(true);
-    // } else if (
-    //   data.product.name === "Innovator" ||
-    //   data.product.name === "Innovator Monthly"
-    // ) {
-    //   setCredits(250);
-    //   setPlan("Innovator");
-    //   // updateIdea(250, "Innovator");
-    //   setSuccessPopUp(true);
-    // } else if (
-    //   data.product.name === "Pro" ||
-    //   data.product.name === "Pro Monthly"
-    // ) {
-    //   setCredits(1000);
-    //   setPlan("Pro");
-    //   // updateIdea(1000, "Pro");
-    //   setSuccessPopUp(true);
-    // } else if (data.product.name === "Beta Test Plan") {
-    //   setCredits(50);
-    //   setPlan("Beta");
-    //   // updateIdea(1000, "Pro");
-    //   setSuccessPopUp(true);
-    // }
   }
 
   function checkoutClosed(data) {
@@ -250,7 +213,7 @@ function BuyCredits(props) {
                     if (Paddle.Audience.AllowPopup() === true) {
                       // eslint-disable-next-line
                       Paddle.Checkout.open({
-                        product: "776868",
+                        product: "793678",
                         // product: "769844",
                         email: user.email || null,
                         passthrough: `${user?.uid}`,
