@@ -61,7 +61,7 @@ function About() {
           </motion.h2>
           <motion.div variants={textAnimate} className="text-box">
             <p className="font-bold">
-              <h3>
+              <h3 className="heading-md">
                 This was made to help you build fully developed business
                 concepts with ease.
               </h3>
