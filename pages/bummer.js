@@ -6,14 +6,14 @@ import { TbMoodHappy } from "react-icons/tb";
 function Bummer() {
   return (
     <div className="page-container">
-      <p className="!my-10 text-3xl">Fair enough, you do you boo! </p>
+      <p className="!my-10 text-3xl">Fair enough, you do you! </p>
       <p className="!my-10 text-xl">
         You&apos;re missing out on some pretty cool tech tho
       </p>
       <div className="flex gap-2 mb-5">
         <Link
           href={
-            "https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"
+            "https://www.google.com"
           }
         >
           <a className="button">

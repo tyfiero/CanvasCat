@@ -78,17 +78,17 @@ export default function Home() {
           >
             <h3 className="w-full heading-sm">
               {" "}
-              Tryna have some fun with an AI today??
+              Want to have some fun with an AI today??
             </h3>
             <div className="flex gap-3">
               <Link href={"/bummer"}>
                 <a className="button">
-                  Nah fam <FaSadTear />
+                  Not today <FaSadTear />
                 </a>
               </Link>
               <Link href={"/create"}>
                 <a className="button2">
-                  Ah Hell Yeah! <FaArrowRight />
+                  Heck Yeah! <FaArrowRight />
                 </a>
               </Link>
             </div>
