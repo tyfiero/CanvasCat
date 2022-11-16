@@ -11,18 +11,14 @@ function Bummer() {
         You&apos;re missing out on some pretty cool tech tho
       </p>
       <div className="flex gap-2 mb-5">
-        <Link
-          href={
-            "https://www.google.com"
-          }
-        >
+        <Link href={"https://www.google.com"}>
           <a className="button">
             Bye bye <FaRegHandPeace className="ml-2 scale-125" />
           </a>
         </Link>
         <Link href={"/create"}>
           <a className="button2">
-            Wait I changed my mind!
+            Wait I changed my mind!!
             <TbMoodHappy className="ml-2 scale-150" />
           </a>
         </Link>
